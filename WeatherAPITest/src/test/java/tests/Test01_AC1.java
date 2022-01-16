@@ -43,6 +43,7 @@ public class Test01_AC1 {
 		String incorrectLat = "x";
 		String Long = "-78.543";
 		int resStatus = 400;
+		
 		commFunc.getWeatherLatLongStatusCode(incorrectLat, Long, resStatus);
 	}
 	

@@ -14,8 +14,8 @@ public class Test03_AC3 {
 	void test_01_correctPostalCode() {
 		String postalCode = "28546";
 		int statusCode = 200;
-		commFunc.getAirQualityStatusCode(postalCode, statusCode);
 		
+		commFunc.getAirQualityStatusCode(postalCode, statusCode);
 	}
 	
 	@Test
