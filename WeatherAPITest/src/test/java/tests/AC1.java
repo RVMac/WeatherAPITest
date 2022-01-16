@@ -1,17 +1,16 @@
 package tests;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import dataProvider.ConfigReader;
 import utilities.commonFunctions;
-public class AC1 {
-	commonFunctions commFunc = new commonFunctions();
-	String Lat = "38.123";
+public class AC1 extends BaseClass {
+	
 	String Long = "-78.543";
+	String Lat = "38.123";
+	String CountryCode = "US";
+	String stateCode = "VA";
+	String cityName = "Free Union";
 	
 	String incorrectLat = "x";
 	String incorrectLong = "x";
@@ -23,7 +22,7 @@ public class AC1 {
 	@Test
 	void test_01_correctLatLong() {
 		int resStatus = 200;
-		commFunc.getWeatherLatLongStatusCode(Lat, Long, resStatus);
+		commFunc.getCurrentWeatherLatLongCheckLatLongResponse(resStatus, Long, Lat, CountryCode, stateCode, cityName);
 	}
 	
 	@Test
@@ -35,7 +34,6 @@ public class AC1 {
 	@Test
 	void test_03_invalidLong() {
 		int resStatus = 400;
-		
 		commFunc.getWeatherLatLongStatusCode(Lat, incorrectLong, resStatus);
 	}
 	
