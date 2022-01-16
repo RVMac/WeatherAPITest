@@ -3,13 +3,13 @@
 <suite name="Weatherbit.io API Test Suite">
   <test thread-count="2" name="GET: Current Weather Using Latitude and Longtitude">
     <classes>
-      <class name="tests.Test01_AC1"/>
+      <class name="tests.AC1"/>
     </classes>
   </test> <!-- Test -->
 
   <test thread-count="2" name="GET: Air Quality Using Postal Code">
     <classes>
-      <class name="tests.Test03_AC3"/>
+      <class name="tests.AC3"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
