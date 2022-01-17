@@ -1,63 +1,20 @@
 package tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import utilities.commonFunctions;
+import dataProvider.DataProviders;
 public class AC1 extends BaseClass {
-	
-	String Long = "-78.543";
-	String Lat = "38.123";
-	String CountryCode = "US";
-	String stateCode = "VA";
-	String cityName = "Free Union";
-	
-	String incorrectLat = "x";
-	String incorrectLong = "x";
-	
-	String missingLat = "";
-	String missingLong = "";
-	
-	
-	@Test
-	void test_01_correctLatLong() {
-		int resStatus = 200;
+	@Test(	dataProvider = "AC1_CorrectData",
+			dataProviderClass = DataProviders.class
+		 )
+	void test_01_correctLatLong(int resStatus, String Long, String Lat, String CountryCode, String stateCode, String cityName) {
 		commFunc.getCurrentWeatherLatLongCheckLatLongResponse(resStatus, Long, Lat, CountryCode, stateCode, cityName);
 	}
 	
-	@Test
-	void test_02_invalidLatLong() {
-		int resStatus = 400;
-		commFunc.getWeatherLatLongStatusCode(incorrectLat, incorrectLong, resStatus);
-	}
-	
-	@Test
-	void test_03_invalidLong() {
-		int resStatus = 400;
-		commFunc.getWeatherLatLongStatusCode(Lat, incorrectLong, resStatus);
-	}
-	
-	@Test
-	void test_04_invalidLat() {
-		int resStatus = 400;
-		commFunc.getWeatherLatLongStatusCode(incorrectLat, Long, resStatus);
-	}
-	
-	@Test
-	void test_05_LatOnly() {
-		int resStatus = 400;
-		commFunc.getWeatherLatLongStatusCode(Lat, missingLong, resStatus);
-	}
-	
-	@Test
-	void test_05_LongOnly() {
-		int resStatus = 400;
-		commFunc.getWeatherLatLongStatusCode(missingLat, Long, resStatus);
-	}
-	
-	@Test
-	void test_06_NoLatLong() {
-		int resStatus = 400;
-		commFunc.getWeatherLatLongStatusCode(missingLat, missingLong, resStatus);
+	@Test(	dataProvider = "AC1_IncorrectData",
+			dataProviderClass = DataProviders.class
+		 )
+	void test_02_invalidLatLong(String Lat, String Long, int resStatus) {
+		commFunc.getWeatherLatLongStatusCode(Lat, Long, resStatus);
 	}
 }

@@ -1,12 +1,8 @@
 package tests;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.given;
-
-import java.awt.Taskbar.State;
-
 import org.testng.annotations.Test;
 
+import dataProvider.DataProviders;
 import utilities.commonFunctions;
 
 public class AC3 {
@@ -19,23 +15,17 @@ public class AC3 {
 	String incorrectPostalCode = "x";
 	String missingPostalCode = "";
 	
-	@Test
-	void test_01_correctPostalCode() {
-		int statusCode = 200;
-//		commFunc.getAirQualityStatusCode(postalCode, statusCode);
+	@Test(	dataProvider = "AC3_CorrectData",
+			dataProviderClass = DataProviders.class
+		 )
+	void test_01_correctPostalCode(int statusCode, String postalCode,  String cityName, String CountryCode, String StateCode) {
 		commFunc.getAirQualityStatusCheckResponse(statusCode, postalCode, cityName, CountryCode, StateCode);
-		
 	}
 	
-	@Test
-	void test_02_invalidPostalCode() {
-		int statusCode = 204;
+	@Test(	dataProvider = "AC3_IncorrectData",
+			dataProviderClass = DataProviders.class
+		 )
+	void test_02_invalidPostalCode(int statusCode, String incorrectPostalCode) {
 		commFunc.getAirQualityStatusCode(incorrectPostalCode, statusCode);
-	}
-	
-	@Test
-	void test_02_missingPostalCode() {
-		int statusCode = 400;
-		commFunc.getAirQualityStatusCode(missingPostalCode, statusCode);
 	}
 }
