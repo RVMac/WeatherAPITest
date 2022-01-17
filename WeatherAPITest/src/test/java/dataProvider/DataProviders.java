@@ -8,8 +8,9 @@ public class DataProviders {
 	public Object[][] AC1_CorrectData(){
 		return new Object[][] {
 			{200, "-78.543", "38.123", "US", "VA", "Free Union"},
-			{200, "-78.543", "38.123", "US", "VA", "Free Union"},
-			{200, "-78.543", "38.123", "US", "VA", "Free Union"},
+			{200, "21.78896", "40.30069", "GR", "ESYE13", "Kozáni"},
+			{200, "120.9822", "14.6042", "PH", "NCR", "Manila"},
+			{200, "120.9833", "14.6", "PH", "NCR", "Quiapo"},
 		};
 	}
 	
@@ -28,9 +29,9 @@ public class DataProviders {
 	@DataProvider (name = "AC2_CorrectData")
 	public Object[][] AC2_CorrectData(){
 		return new Object[][] {
+			{200, "735563", "GR", "ESYE13", "Kozáni"},
 			{200, "4487042", "US", "NC", "Raleigh"},
-			{200, "4487042", "US", "NC", "Raleigh"},
-			{200, "4487042", "US", "NC", "Raleigh"},
+			{200, "1701668", "PH", "NCR", "Manila"},
 		};
 	}
 	
