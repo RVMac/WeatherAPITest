@@ -8,16 +8,9 @@ import utilities.commonFunctions;
 
 
 public class AC2 extends BaseClass{
-//	String cityID = "4487042";
-//	String countryCode = "US";
-//	String stateCode = "NC";
-//	String cityName = "Raleigh";
-//	
-//	String incorrectCityID = "9999999";
 	@Test(	dataProvider = "AC2_CorrectData",
 			dataProviderClass = DataProviders.class
 		 )
-	
 	
 	void test_01_correctCity(String cityID, String countryCode, String stateCode, String cityName) {
 		int statusCode = 200;
