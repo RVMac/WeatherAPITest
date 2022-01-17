@@ -3,17 +3,8 @@ package tests;
 import org.testng.annotations.Test;
 
 import dataProvider.DataProviders;
-import utilities.commonFunctions;
 
-public class AC3 {
-	commonFunctions commFunc = new commonFunctions();
-	String postalCode = "28546";
-	String cityName = "Onslow";
-	String CountryCode = "US";
-	String StateCode = "NC";
-	
-	String incorrectPostalCode = "x";
-	String missingPostalCode = "";
+public class AC3 extends BaseClass{
 	
 	@Test(	dataProvider = "AC3_CorrectData",
 			dataProviderClass = DataProviders.class

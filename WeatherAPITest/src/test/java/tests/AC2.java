@@ -6,6 +6,7 @@ import dataProvider.DataProviders;
 
 
 public class AC2 extends BaseClass{
+	
 	@Test(	dataProvider = "AC2_CorrectData",
 			dataProviderClass = DataProviders.class
 		 )

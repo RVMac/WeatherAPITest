@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import dataProvider.DataProviders;
 public class AC1 extends BaseClass {
+	
 	@Test(	dataProvider = "AC1_CorrectData",
 			dataProviderClass = DataProviders.class
 		 )
